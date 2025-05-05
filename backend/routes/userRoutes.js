@@ -1,12 +1,12 @@
-import express from 'express';
-import { createUser, checkUsername, updateUser } from '../controllers/userController.js';
-import { upload } from '../middleware/fileUpload.js';
-import { validateUser } from '../middleware/validation.js';
+const express = require('express');
+const { createUser, checkUsername, updateUser } = require('../controller/userController');
+const { upload } = require('../middleware/fileUpload');
+const { validateUser } = require('../middleware/validation');
 
 const router = express.Router();
 
-router.post('/', upload.single('profilePhoto'), validateUser, createUser);
+router.post('/', upload.single('profilePhoto'), createUser);
 router.get('/check-username', checkUsername);
 router.put('/:id', upload.single('profilePhoto'), validateUser, updateUser);
 
-export default router;
+module.exports = router;

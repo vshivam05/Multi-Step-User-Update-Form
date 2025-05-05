@@ -1,12 +1,13 @@
-const Country = require("../model/Country");
-const State = require("../model/State");
-const City = require("../model/City");
+const {Country} = require("../model/Country");
+const {State} = require("../model/State");
+const {City} = require("../model/City");
 
  const getAllCountries = async (req, res) => {
   try {
     const countries = await Country.find({});
     res.status(200).json(countries);
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: "Failed to fetch countries" });
   }
 };

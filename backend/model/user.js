@@ -1,10 +1,10 @@
-import mongoose from "mongoose";
-import bcrypt from "bcryptjs";
+const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema({
   profilePhoto: {
-    type: String,
-    required: true
+    type: String
+    
   },
   username: {
     type: String,
@@ -70,4 +70,6 @@ userSchema.pre('save', async function(next) {
   next();
 });
 
-export default mongoose.model('User', userSchema);
+const User= mongoose.model('User', userSchema);
+
+module.exports = {User};
