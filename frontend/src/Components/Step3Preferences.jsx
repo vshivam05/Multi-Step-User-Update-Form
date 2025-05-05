@@ -10,13 +10,15 @@ const Step3Preferences = ({
 }) => {
   return (
     <div>
-      <h2>Step 3: Preferences</h2>
-      <div>
-        <label>Country:</label>
+      <h2 className="text-xl font-semibold mb-6">Step 3: Preferences</h2>
+
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-1">Country:</label>
         <select
           name="country"
           value={formData.country}
           onChange={onInputChange}
+          className="w-full border rounded px-3 py-2"
         >
           <option value="">Select Country</option>
           {countries.map((c) => (
@@ -25,11 +27,19 @@ const Step3Preferences = ({
             </option>
           ))}
         </select>
-        {errors.country && <p className="error">{errors.country}</p>}
+        {errors.country && (
+          <p className="text-red-500 text-sm mt-1">{errors.country}</p>
+        )}
       </div>
-      <div>
-        <label>State:</label>
-        <select name="state" value={formData.state} onChange={onInputChange}>
+
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-1">State:</label>
+        <select
+          name="state"
+          value={formData.state}
+          onChange={onInputChange}
+          className="w-full border rounded px-3 py-2"
+        >
           <option value="">Select State</option>
           {states.map((s) => (
             <option key={s._id} value={s._id}>
@@ -37,11 +47,19 @@ const Step3Preferences = ({
             </option>
           ))}
         </select>
-        {errors.state && <p className="error">{errors.state}</p>}
+        {errors.state && (
+          <p className="text-red-500 text-sm mt-1">{errors.state}</p>
+        )}
       </div>
-      <div>
-        <label>City:</label>
-        <select name="city" value={formData.city} onChange={onInputChange}>
+
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-1">City:</label>
+        <select
+          name="city"
+          value={formData.city}
+          onChange={onInputChange}
+          className="w-full border rounded px-3 py-2"
+        >
           <option value="">Select City</option>
           {cities.map((c) => (
             <option key={c._id} value={c._id}>
@@ -49,48 +67,40 @@ const Step3Preferences = ({
             </option>
           ))}
         </select>
-        {errors.city && <p className="error">{errors.city}</p>}
+        {errors.city && (
+          <p className="text-red-500 text-sm mt-1">{errors.city}</p>
+        )}
       </div>
-      <div>
-        <label>Subscription Plan:</label>
-        <label>
-          <input
-            type="radio"
-            name="subscriptionPlan"
-            value="Basic"
-            checked={formData.subscriptionPlan === "Basic"}
-            onChange={onInputChange}
-          />
-          Basic
+
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-2">
+          Subscription Plan:
         </label>
-        <label>
-          <input
-            type="radio"
-            name="subscriptionPlan"
-            value="Pro"
-            checked={formData.subscriptionPlan === "Pro"}
-            onChange={onInputChange}
-          />
-          Pro
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="subscriptionPlan"
-            value="Enterprise"
-            checked={formData.subscriptionPlan === "Enterprise"}
-            onChange={onInputChange}
-          />
-          Enterprise
-        </label>
+        <div className="flex gap-4">
+          {["Basic", "Pro", "Enterprise"].map((plan) => (
+            <label key={plan} className="inline-flex items-center gap-2">
+              <input
+                type="radio"
+                name="subscriptionPlan"
+                value={plan}
+                checked={formData.subscriptionPlan === plan}
+                onChange={onInputChange}
+                className="accent-blue-600"
+              />
+              {plan}
+            </label>
+          ))}
+        </div>
       </div>
-      <div>
-        <label>
+
+      <div className="mb-4">
+        <label className="inline-flex items-center gap-2">
           <input
             type="checkbox"
             name="newsletter"
             checked={formData.newsletter}
             onChange={onInputChange}
+            className="accent-blue-600"
           />
           Subscribe to Newsletter
         </label>
