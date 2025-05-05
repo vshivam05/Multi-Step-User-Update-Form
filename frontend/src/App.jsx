@@ -1,5 +1,5 @@
 import React from "react";
-import MultiStepForm from "./components/MultiStepForm";
+import MultiStepForm from "./Components/MultiStepForm";
 import "./App.css";
 function App() {
   return (
