@@ -4,7 +4,6 @@ const Step1PersonalInfo = ({
   formData,
   errors,
   usernameAvailable,
-  passwordStrengthScore,
   onInputChange,
 }) => {
   return (

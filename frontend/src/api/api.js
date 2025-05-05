@@ -1,4 +1,6 @@
-export const API = `http://localhost:5000`;
+// export const API = `http://localhost:5000`;
+export const API = `https://multi-step-user-update-form.onrender.com`;
+
 
 export async function fetchCountries() {
   try {
